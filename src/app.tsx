@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from 'react'
 import logo from './assets/logo-nlw-expert.svg'
 import { NewNoteCard } from './components/new-note-card'
 import { NoteCard } from './components/note-card'
+import { toast } from 'sonner'
 
 interface Note {
   id: string
@@ -35,6 +36,7 @@ export function App() {
 
   function onNoteDeleted(id: string) {
     const notesArray = notes.filter(note => {
+      toast.success('Nota excluída com sucesso')
       return note.id != id
     })
 
